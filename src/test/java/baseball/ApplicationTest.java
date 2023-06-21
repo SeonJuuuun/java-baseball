@@ -32,4 +32,30 @@ class ApplicationTest extends NsTest {
     public void runMain() {
         Application.main(new String[]{});
     }
+
+    @Test
+    void 플레이어_입력_중복_테스트() {
+        assertSimpleTest(() ->
+            assertThatThrownBy(() -> runException("112"))
+                .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+    @Test
+    void 플레이어_입력_영어_테스트() {
+        assertSimpleTest(() ->
+            assertThatThrownBy(() -> runException("11a"))
+                .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 플레이어_입력_범위_테스트() {
+        assertSimpleTest(() ->
+            assertThatThrownBy(() -> runException("012"))
+                .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
+
+
 }
