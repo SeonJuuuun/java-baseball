@@ -29,4 +29,22 @@ class GameResultTest {
 
 		assertThat(capturedOutput).isEqualTo(expectedOutput);
 	}
+
+	@Test
+	void printResult_0Strike_0Ball() {
+		GameResult gameResult = new GameResult();
+
+		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+		PrintStream originalOutput = System.out;
+		System.setOut(new PrintStream(outputStream));
+
+		gameResult.printResult(0,0);
+
+		System.setOut(originalOutput);
+		String capturedOutput = outputStream.toString().trim();
+
+		String expectedOutput = "낫싱";
+
+		assertThat(capturedOutput).isEqualTo(expectedOutput);
+	}
 }
