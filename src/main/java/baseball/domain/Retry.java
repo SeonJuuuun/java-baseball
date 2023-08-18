@@ -33,4 +33,12 @@ public class Retry {
 			throw new IllegalArgumentException("입력된 숫자는 1 또는 2 이어야 합니다.");
 		}
 	}
+
+	public boolean conversionRetryNumber(String retryNumber){
+		return retryNumber.equals("1");
+	}
+
+	public boolean isRetry() {
+		return retryNumber;
+	}
 }
