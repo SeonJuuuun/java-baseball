@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import baseball.constants.Constants;
+
 public class PlayerNumber {
 
 	private final List<Integer> playerNumber;
@@ -27,6 +29,12 @@ public class PlayerNumber {
 			if (!numStr.matches("^[1-9]$")) {
 				throw new IllegalArgumentException("입력된 숫자는 1이상 9이하의 숫자만 가능합니다.");
 			}
+		}
+	}
+
+	private void checkNumberSize(List<Integer> playerNumber) throws IllegalArgumentException {
+		if (playerNumber.size() != Constants.MAX_SIZE) {
+			throw new IllegalArgumentException("입력된 숫자는 3자리 이어야 합니다.");
 		}
 	}
 
