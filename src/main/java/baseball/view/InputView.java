@@ -5,6 +5,8 @@ import java.util.List;
 
 import baseball.constants.Constants;
 import baseball.domain.Computer;
+import baseball.domain.PlayerNumber;
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class InputView {
@@ -20,5 +22,14 @@ public class InputView {
 			System.out.println(computerNumber1);
 		}
 		return new Computer(computerNumber);
+	}
+
+	public PlayerNumber inputPlayerNumber() {
+		List<Integer> playerNumber = new ArrayList<>();
+		String number = Console.readLine();
+		for (int i = 0; i < number.length(); i++) {
+			playerNumber.add(number.charAt(i) - '0');
+		}
+		return new PlayerNumber(playerNumber);
 	}
 }
