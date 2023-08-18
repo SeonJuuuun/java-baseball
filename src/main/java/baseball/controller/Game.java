@@ -34,5 +34,19 @@ public class Game {
 		}
 	}
 
+	public Judge judge(Computer computer, PlayerNumber playerNumber) {
+		int strikeCount = 0;
+		int ballCount = 0;
+		for (int i = 0; i < Constants.MAX_SIZE; i++) {
+			if (computer.getComputerNumber().get(i).equals(playerNumber.getPlayerNumber().get(i))) {
+				strikeCount++;
+			}
+			if (computer.getComputerNumber().contains(playerNumber.getPlayerNumber().get(i))) {
+				ballCount++;
+			}
+		}
+		ballCount -= strikeCount;
+		return new Judge(strikeCount, ballCount);
+	}
 }
 
