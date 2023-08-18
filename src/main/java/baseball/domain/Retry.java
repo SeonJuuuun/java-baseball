@@ -26,4 +26,11 @@ public class Retry {
 			throw new IllegalArgumentException("입력은 한글자만 가능합니다.");
 		}
 	}
+
+	private void checkInputNumber(String retryNumber) throws IllegalArgumentException {
+		int retry = Integer.parseInt(retryNumber);
+		if (retry < 1 || retry > 2) {
+			throw new IllegalArgumentException("입력된 숫자는 1 또는 2 이어야 합니다.");
+		}
+	}
 }
