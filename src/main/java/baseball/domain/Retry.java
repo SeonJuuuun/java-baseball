@@ -21,4 +21,9 @@ public class Retry {
 		}
 	}
 
+	public void checkRetryNumberSize(String retryNumber) throws IllegalArgumentException {
+		if(retryNumber.length() != 1){
+			throw new IllegalArgumentException("입력은 한글자만 가능합니다.");
+		}
+	}
 }
