@@ -7,4 +7,10 @@ public class Retry {
 	public Retry(String retryNumber){
 		this.retryNumber = conversionRetryNumber(retryNumber);
 	}
+
+	public void checkException(String retryNumber) {
+		checkRetryNumberSize(retryNumber);
+		validateInputRetryNumbers(retryNumber);
+		checkInputNumber(retryNumber);
+	}
 }
