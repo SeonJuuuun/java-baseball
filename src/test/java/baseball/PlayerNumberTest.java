@@ -18,6 +18,14 @@ class PlayerNumberTest extends NsTest{
 		);
 	}
 
+	@Test
+	void 플레이어_입력_영어_테스트() {
+		assertSimpleTest(() ->
+			assertThatThrownBy(() -> runException("11a"))
+				.isInstanceOf(IllegalArgumentException.class)
+		);
+	}
+
 	@Override
 	public void runMain() {
 		Application.main(new String[]{});
