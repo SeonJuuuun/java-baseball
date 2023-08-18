@@ -47,4 +47,22 @@ class GameResultTest {
 
 		assertThat(capturedOutput).isEqualTo(expectedOutput);
 	}
+
+	@Test
+	void printResult_2Strike_1Ball() {
+		GameResult gameResult = new GameResult();
+
+		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+		PrintStream originalOutput = System.out;
+		System.setOut(new PrintStream(outputStream));
+
+		gameResult.printResult(2,1);
+
+		System.setOut(originalOutput);
+		String capturedOutput = outputStream.toString().trim();
+
+		String expectedOutput = "1볼 2스트라이크";   // 볼 먼저 출력
+
+		assertThat(capturedOutput).isEqualTo(expectedOutput);
+	}
 }
