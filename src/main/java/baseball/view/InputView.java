@@ -32,4 +32,8 @@ public class InputView {
 		}
 		return new PlayerNumber(playerNumber);
 	}
+
+	public String inputRetryNumber() {
+		return Console.readLine();
+	}
 }
