@@ -48,5 +48,11 @@ public class Game {
 		ballCount -= strikeCount;
 		return new Judge(strikeCount, ballCount);
 	}
+
+	private boolean tryRetry() {
+		String retryNumber = inputView.inputRetryNumber();
+		Retry retry = new Retry(retryNumber);
+		return retry.isRetry();
+	}
 }
 
