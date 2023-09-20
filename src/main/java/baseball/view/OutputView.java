@@ -1,5 +1,7 @@
 package baseball.view;
 
+import baseball.domain.CompareResult;
+
 public class OutputView {
 
     private OutputView() {
@@ -13,22 +15,8 @@ public class OutputView {
         System.out.print("숫자를 입력해주세요 : ");
     }
 
-    public static void printResult(int strikeCount, int ballCount) {
-        if (strikeCount == 3) {
-            System.out.println("3스트라이크");
-        }
-        if (strikeCount == 0 && ballCount >= 1) {
-            System.out.println(ballCount + "볼");
-        }
-        if (strikeCount >= 1 && ballCount == 0 && strikeCount < 3) {
-            System.out.println(strikeCount + "스트라이크");
-        }
-        if (strikeCount == 0 && ballCount == 0) {
-            System.out.println("낫싱");
-        }
-        if (strikeCount >= 1 && ballCount >= 1) {
-            System.out.println(ballCount + "볼 " + strikeCount + "스트라이크");
-        }
+    public static void printResult(CompareResult compareResult) {
+        System.out.println(compareResult);
     }
 
     public static void endMessage() {

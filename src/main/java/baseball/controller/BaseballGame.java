@@ -1,5 +1,6 @@
 package baseball.controller;
 
+import baseball.domain.CompareResult;
 import baseball.domain.Computer;
 import baseball.domain.Player;
 import baseball.domain.RandomNumberGenerator;
@@ -11,6 +12,8 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class BaseballGame {
+
+    private static final String ALL_STRIKE = "3스트라이크";
 
     private final RandomNumberGenerator randomNumberGenerator;
     private final BaseballService baseballService;
@@ -27,7 +30,7 @@ public class BaseballGame {
     }
 
     private void playGame() {
-        while(true) {
+        while (true) {
             Computer computerNumber = generateComputerNumber();
             calculateNumber(computerNumber);
             Retry retry = selectRetryCommand();
@@ -40,16 +43,17 @@ public class BaseballGame {
     private void calculateNumber(Computer computerNumber) {
         while (true) {
             Player playerNumber = generatePlayerNumber();
-            int strikeCount = baseballService.getStrikeCount(computerNumber, playerNumber);
-            int ballCount = baseballService.getBallCount(computerNumber, playerNumber);
-            ballCount -= strikeCount;
-            OutputView.printResult(strikeCount, ballCount);
-
-            if (strikeCount == 3) {
+            CompareResult compareResult = baseballService.compare(computerNumber, playerNumber);
+            OutputView.printResult(compareResult);
+            if (isResultAllStrike(compareResult)) {
                 OutputView.endMessage();
                 break;
             }
         }
+    }
+
+    private boolean isResultAllStrike(CompareResult compareResult) {
+        return compareResult.toString().equals(ALL_STRIKE);
     }
 
     private boolean isEnd(Retry retry) {

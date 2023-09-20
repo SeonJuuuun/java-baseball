@@ -11,10 +11,6 @@ public class Player {
         this.playerNumber = playerNumber;
     }
 
-    public List<Integer> getPlayerNumber() {
-        return playerNumber;
-    }
-
     private void validatePlayerNumber(List<Integer> playerNumber) {
         validateSize(playerNumber);
     }
