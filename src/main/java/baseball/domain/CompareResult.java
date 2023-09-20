@@ -32,4 +32,8 @@ public class CompareResult {
         }
         return String.format("%d%s %d%s", ballCount, BALL_TEXT, strikeCount, STRIKE_TEXT);
     }
+
+    public CountOfBalls getCountOfBalls() {
+        return count;
+    }
 }
