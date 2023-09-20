@@ -13,4 +13,12 @@ public class Computer {
     public List<Integer> getComputerNumber() {
         return computerNumber;
     }
+
+    public int getComputerNumberByIndex(int index) {
+        return computerNumber.get(index);
+    }
+
+    public boolean isComputerNumberContainsPlayerNumber(Integer playerNumber) {
+        return computerNumber.contains(playerNumber);
+    }
 }

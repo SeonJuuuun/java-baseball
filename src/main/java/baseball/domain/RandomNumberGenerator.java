@@ -6,7 +6,7 @@ import java.util.List;
 
 public class RandomNumberGenerator implements NumberGenerator {
 
-    private static final int MIN_NUMBER = 0;
+    private static final int MIN_NUMBER = 1;
     private static final int MAX_NUMBER = 9;
     private static final int MAX_SIZE = 3;
 
@@ -19,6 +19,7 @@ public class RandomNumberGenerator implements NumberGenerator {
                 computerNumbers.add(randomNumber);
             }
         }
+        computerNumbers.forEach(System.out::println);
         return new Computer(computerNumbers);
     }
 
