@@ -1,8 +1,5 @@
 package baseball.view;
 
-import baseball.domain.Computer;
-import baseball.domain.Player;
-
 public class OutputView {
 
     private OutputView() {
@@ -19,8 +16,6 @@ public class OutputView {
     public static void printResult(int strikeCount, int ballCount) {
         if (strikeCount == 3) {
             System.out.println("3스트라이크");
-            endMessage();
-            restartMessage();
         }
         if (strikeCount == 0 && ballCount >= 1) {
             System.out.println(ballCount + "볼");

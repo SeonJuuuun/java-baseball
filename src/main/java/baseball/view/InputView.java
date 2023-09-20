@@ -9,11 +9,17 @@ public class InputView {
 
     public static String readPlayerNumber() {
         String playerNumber = Console.readLine();
-        validatePlayerNumber(playerNumber);
+        validateInputs(playerNumber);
         return playerNumber;
     }
 
-    private static void validatePlayerNumber(String inputs) {
+    public static String readRestartCommand() {
+        String command = Console.readLine();
+        validateInputs(command);
+        return command;
+    }
+
+    private static void validateInputs(String inputs) {
         validateBlank(inputs);
         validateInteger(inputs);
     }

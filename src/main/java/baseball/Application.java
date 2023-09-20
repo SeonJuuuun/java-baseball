@@ -8,6 +8,6 @@ public class Application {
     public static void main(String[] args) {
         BaseballGame baseballGame = new BaseballGame(new RandomNumberGenerator(),
             new BaseballService());
-        baseballGame.startGame();
+        baseballGame.start();
     }
 }
