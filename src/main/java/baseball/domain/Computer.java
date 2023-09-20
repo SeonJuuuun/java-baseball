@@ -4,13 +4,13 @@ import java.util.List;
 
 public class Computer {
 
-    private final List<String> computerNumber;
+    private final List<Integer> computerNumber;
 
-    public Computer(List<String> computerNumber) {
+    public Computer(List<Integer> computerNumber) {
         this.computerNumber = computerNumber;
     }
 
-    public List<String> getComputerNumber() {
+    public List<Integer> getComputerNumber() {
         return computerNumber;
     }
 }
