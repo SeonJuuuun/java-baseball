@@ -1,47 +1,40 @@
 package baseball.view;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import baseball.constants.Constants;
-import baseball.domain.Computer;
-import baseball.domain.PlayerNumber;
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 
 public class InputView {
 
-	public Computer generateSuccessNumber() {
-		List<Integer> computerNumber = new ArrayList<>();
-		while (computerNumber.size() < 3) {
-			int randomNumber = Randoms.pickNumberInRange(Constants.MIN_VALUE, Constants.MAX_VALUE);
-			if (!computerNumber.contains(randomNumber))
-				computerNumber.add(randomNumber);
-		}
-		for (Integer computerNumber1 : computerNumber) {
-			System.out.println(computerNumber1);
-		}
-		return new Computer(computerNumber);
-	}
+    private InputView() {
+    }
 
-	public PlayerNumber inputPlayerNumber() {
-		List<Integer> playerNumber = new ArrayList<>();
-		String number = Console.readLine();
-		for (int i = 0; i < number.length(); i++) {
-			playerNumber.add(number.charAt(i) - '0');
-		}
-		return new PlayerNumber(playerNumber);
-	}
+    public static String readPlayerNumber() {
+        String playerNumber = Console.readLine();
+        validateInputs(playerNumber);
+        return playerNumber;
+    }
 
-	public String inputRetryNumber() {
-		return Console.readLine();
-	}
+    public static String readRestartCommand() {
+        String command = Console.readLine();
+        validateInputs(command);
+        return command;
+    }
 
-	public void gameStartMessage(){
-		System.out.println("숫자 야구 게임을 시작합니다.");
-	}
+    private static void validateInputs(String inputs) {
+        validateBlank(inputs);
+        validateInteger(inputs);
+    }
 
-	public void printInputMessage(){
-		System.out.print("숫자를 입력해 주세요 : ");
-	}
+    private static void validateBlank(String inputs) {
+        if (inputs.isBlank()) {
+            throw new IllegalArgumentException("올바르지 않은 입력입니다.");
+        }
+    }
+
+    private static Integer validateInteger(String inputs) {
+        try {
+            return Integer.valueOf(inputs);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("숫자를 입력해야 합니다.");
+        }
+    }
 }
